@@ -1,0 +1,74 @@
+{
+    "typeName": "Zugzwang::Cloud::IPv6SubnetConfiguration",
+    "description": "An example resource schema demonstrating some basic constructs and validation rules.",
+    "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-rpdk.git",
+    "definitions": {
+    },
+    "properties": {
+        "SubnetId": {
+            "type": "string"
+        },
+        "CidrSize": {
+            "type": "integer"
+        },
+        "EgressOnlyInternetGatewayId": {
+            "type": "string"
+        },
+        "RouteTableId": {
+            "type": "string"
+        },
+        "VpcIPv6Cidr": {
+            "type": "string"
+        },
+        "SubnetIPv6CidrAssociationId": {
+            "type": "string"
+        },
+        "SubnetIPv6Cidr": {
+            "type": "string"
+        }
+    },
+    "additionalProperties": false,
+    "required": [
+        "SubnetId",
+        "EgressOnlyInternetGatewayId",
+        "RouteTableId"
+    ],
+    "readOnlyProperties": [
+        "/properties/SubnetIPv6Cidr",
+        "/properties/SubnetIPv6CidrAssociationId"
+    ],
+    "primaryIdentifier": [
+        "/properties/SubnetId",
+        "/properties/RouteTableId"
+    ],
+    "handlers": {
+        "create": {
+            "permissions": [
+                "ec2:DescribeVpcs",
+                "ec2:DescribeSubnets",
+                "ec2:DescribeRouteTables",
+                "ec2:CreateTags",
+                "ec2:CreateRoute",
+                "ec2:AssociateSubnetCidrBlock",
+                "ec2:ModifySubnetAttribute"
+            ]
+        },
+        "read": {
+            "permissions": [
+                "ec2:DescribeVpcs",
+                "ec2:DescribeSubnets",
+                "ec2:DescribeRouteTables"
+            ]
+        },
+        "delete": {
+            "permissions": [
+                "ec2:DescribeVpcs",
+                "ec2:DescribeSubnets",
+                "ec2:DescribeRouteTables",
+                "ec2:DeleteTags",
+                "ec2:DeleteRoute",
+                "ec2:DisassociateSubnetCidrBlock"
+            ]
+        }
+    }
+}

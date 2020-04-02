@@ -1,0 +1,15 @@
+{
+    "typeName": "Zugzwang::Cloud::IPv6SubnetConfiguration",
+    "language": "java",
+    "runtime": "java8",
+    "entrypoint": "io.zugzwang.cloud.ipv6subnetconfiguration.HandlerWrapper::handleRequest",
+    "testEntrypoint": "io.zugzwang.cloud.ipv6subnetconfiguration.HandlerWrapper::testEntrypoint",
+    "settings": {
+        "namespace": [
+            "io",
+            "zugzwang",
+            "cloud",
+            "ipv6subnetconfiguration"
+        ]
+    }
+}
